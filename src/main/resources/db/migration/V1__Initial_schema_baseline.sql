@@ -1,0 +1,3 @@
+-- This is an empty baseline script.
+-- Flyway will use spring.flyway.baseline-on-migrate=true
+-- and spring.flyway.baseline-version=1 to mark the existing schema as V1.

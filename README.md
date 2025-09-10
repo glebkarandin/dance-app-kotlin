@@ -1,1 +1,1 @@
-# dance-app-kotlin
+# dance-app-java
