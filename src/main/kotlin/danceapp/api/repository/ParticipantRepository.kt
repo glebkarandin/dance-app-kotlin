@@ -17,6 +17,6 @@ interface ParticipantRepository : JpaRepository<Participant, Int> {
     @Query("SELECT COUNT(DISTINCT p) FROM Participant p JOIN p.results r JOIN r.nomination n JOIN n.event e WHERE e.dateStart >= :startDate AND e.dateStart <= :endDate")
     fun countActiveParticipantsInDateRange(@Param("startDate") startDate: OffsetDateTime, @Param("endDate") endDate: OffsetDateTime): Long
 
-    @Query("SELECT DISTINCT p FROM Participant p JOIN p.results r JOIN r.nomination n JOIN n.event e WHERE e.dateStart >= :startDate AND e.dateStart <= :endDate")
+    @Query("SELECT DISTINCT p FROM Participant p JOIN FETCH p.results r JOIN FETCH r.nomination n JOIN FETCH n.event e WHERE e.dateStart >= :startDate AND e.dateStart <= :endDate")
     fun findParticipantsByEventDateRange(@Param("startDate") startDate: OffsetDateTime, @Param("endDate") endDate: OffsetDateTime): List<Participant>
 }
